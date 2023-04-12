@@ -9,14 +9,34 @@ This is a command-line tool for extracting files from Unity package files (`.uni
 
 ## Installation
 
-To install, run the following command:
+### From releases
+Navigate to the releases, and download our latest pre-built executable file for your operating system.
 
+### From source
+To install Unity Package Extractor, please follow these steps:
+
+Clone the repository to your local machine using the following command:
 ```bash
-go get github.com/username/unitypkgextractor
+git clone https://github.com/Minagoroshi/unitypkgextractor.git
+````
+Navigate to the project directory:
+```bash 
+cd unitypkgextractor
 ```
+Build the project by running the following command:
+```bash
+go build .
+````
+You can now use Unity Package Extractor by running the built executable file.
+Note: Make sure you have Go installed on your machine before proceeding with the installation. If you do not have Go installed, you can download it from the official website: https://golang.org/dl/
 
 ## Usage
-To extract files from a Unity package, run the following command:
+To extract files from a Unity package, either:
+
+1. Drag and Drop the Unity package file onto the executable file
+
+
+2. Run the following command:
 
 ```bash
 unitypkgextractor path/to/package.unitypackage [output/directory]
