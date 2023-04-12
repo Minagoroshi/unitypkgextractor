@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -50,12 +49,12 @@ func extractPackage(packagePath string, outputPath string) error {
 		}
 
 		// Get pathname from pathname file
-		pathnameBytes, err := ioutil.ReadFile(pathnamePath)
+		pathnameBytes, err := os.ReadFile(pathnamePath)
 		if err != nil {
 			return err
 		}
-		pathname := string(pathnameBytes[:len(pathnameBytes)-1]) // Remove newline
-		if os.PathSeparator == '\\' {                            // Replace reserved characters on Windows
+		pathname := string(pathnameBytes) // Remove newline
+		if os.PathSeparator == '\\' {     // Replace reserved characters on Windows
 			re := regexp.MustCompile(`[<>:"|?*]`)
 			pathname = re.ReplaceAllString(pathname, "_")
 		}
