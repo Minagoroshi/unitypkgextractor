@@ -66,6 +66,12 @@ func extractPackage(packagePath string, outputPath string) error {
 			continue
 		}
 
+		// Check if the asset file exists before moving
+		if _, err := os.Stat(assetPath); os.IsNotExist(err) {
+			fmt.Printf("WARNING: Skipping '%s' as asset file is missing.\n", file.Name())
+			continue
+		}
+
 		// Move asset file to output path
 		fmt.Printf("Extracting '%s' as '%s'\n", file.Name(), pathname)
 		if err := os.MkdirAll(filepath.Dir(assetOutPath), os.ModePerm); err != nil {
