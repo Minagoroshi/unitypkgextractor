@@ -2,6 +2,8 @@
 
 This is a command-line tool for extracting files from Unity package files (`.unitypackage`).
 
+This took took inspiration from https://github.com/Cobertos/unitypackage_extractor. All I did was rewrite it into Go and further optimize it. The original work deserves credit, however my implementation is unquestionably faster
+
 ## Requirements
 
 - Go 1.16 or later
